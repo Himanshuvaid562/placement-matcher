@@ -1,0 +1,24 @@
+# Render Blueprint for the API. Frontend goes on Vercel (see DEPLOYMENT.md).
+services:
+  - type: web
+    name: p06-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false            # paste your MongoDB Atlas connection string in the dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OFFICER_INVITE_CODE
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false            # your Vercel URL, e.g. https://p06.vercel.app
+      - key: PUBLIC_APP_URL
+        sync: false            # same Vercel URL: used to build recruiter verification links
+      - key: CERTIFICATE_LEVEL_CAP
+        value: "3"

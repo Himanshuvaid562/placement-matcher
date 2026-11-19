@@ -1,0 +1,38 @@
+{
+  "name": "p06-placement-matcher-backend",
+  "version": "1.0.0",
+  "description": "LPU Placement Skill Matcher & Readiness Analyser - API",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/seed/seed.js",
+    "test": "jest --runInBand",
+    "test:unit": "jest --runInBand tests/*.test.js",
+    "test:integration": "jest --runInBand tests/integration"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.0",
+    "multer": "^2.4.0",
+    "pdfkit": "^0.20.2",
+    "qrcode": "^1.5.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^11.3.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.3.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 60000
+  }
+}
